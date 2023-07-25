@@ -16,11 +16,18 @@ Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'tc50cal/vim-terminal'
 Plug 'rust-lang/rust.vim'
+Plug 'lifepillar/vim-gruvbox8'
 
 call plug#end()
 
 :command! Tree NERDTree
 :set mouse=a
+:set shortmess=a
+
+let g:airline_theme= 'gruvbox8'
+:set background=dark
+autocmd vimenter * ++nested colorscheme gruvbox8
+
 
 if v:version > 800
 	:set termwinsize=20x0
@@ -43,4 +50,6 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 autocmd BufWritePre *.py,*.js,*.sh,*.yml,*.yaml :call <SID>StripTrailingWhitespaces()
+
+
 
