@@ -26,7 +26,7 @@ call plug#end()
 
 let g:airline_theme= 'gruvbox8'
 :set background=dark
-autocmd vimenter * ++nested colorscheme gruvbox8
+autocmd vimenter * colorscheme gruvbox8
 
 
 if v:version > 800
