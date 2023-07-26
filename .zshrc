@@ -48,8 +48,7 @@ PROMPT='
 
 ######## ALIASES ########
 alias ll="ls -al"
-
 alias gst="git status"
-
 alias dotfiles='git --git-dir=${HOME}/.dotfiles/ --work-tree=${HOME}'
-
+alias :wq="exit"
+alias :x="exit"
