@@ -8,6 +8,7 @@ export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 
 ######## OPTIONS ########
 setopt autopushd
+bindkey -v
 
 ######## FUNCTIONS ########
 function set-pod () {
