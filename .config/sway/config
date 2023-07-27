@@ -21,7 +21,7 @@ set $term alacritty
 set $menu fuzzel | xargs swaymsg exec --
 
 
-output * bg ~/.local/share/backgrounds/field-g2.svg fill
+output * bg ~/.local/share/backgrounds/field-green.svg fill
 
 # colors
 client.focused	 		#282828	#98971a #282828	#d79921
