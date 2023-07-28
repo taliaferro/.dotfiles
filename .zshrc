@@ -53,4 +53,4 @@ alias gst="git status"
 alias dotfiles='git --git-dir=${HOME}/.dotfiles/ --work-tree=${HOME}'
 alias :wq="exit"
 alias :x="exit"
-alias bw_unlock="export BW_SESSION=$(bw unlock --raw)"
+alias bw_unlock='export BW_SESSION=$(bw unlock --raw)'
