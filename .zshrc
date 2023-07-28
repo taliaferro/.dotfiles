@@ -8,7 +8,6 @@ export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 
 ######## OPTIONS ########
 setopt autopushd
-bindkey -v
 
 ######## FUNCTIONS ########
 function set-pod () {
@@ -31,8 +30,36 @@ function get-pod () {
 
 
 
-######## PROMPT ########
 
+######## Vim mode setup ########
+
+bindkey -v # enable vim mode
+
+# credit to rotareti on stackoverflow
+# https://unix.stackexchange.com/a/327572
+function zle-keymap-select zle-line-init
+{
+    # change cursor shape in iTerm2
+    case $KEYMAP in
+        vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
+        viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
+    esac
+
+    zle reset-prompt
+    zle -R
+}
+
+function zle-line-finish
+{
+    print -n -- "\E]50;CursorShape=0\C-G"  # block cursor
+}
+
+zle -N zle-line-init
+zle -N zle-line-finish
+zle -N zle-keymap-select
+
+
+######## PROMPT ########
 # Load version control information
 autoload -Uz vcs_info
 precmd() { vcs_info }
