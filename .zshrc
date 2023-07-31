@@ -2,9 +2,22 @@
 source ~/.iterm2_shell_integration.zsh
 
 ######## GLOBALS ########
-export REQUESTS_CA_BUNDLE="${HOME}/.config/cert.pem"
 export CLICOLOR=1
 export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+
+if [[ $USER =~ "taliaferro1|jtaliafe" ]]; then
+    export IS_LLNL=true
+else
+    export IS_LLNL=false
+fi
+
+if $IS_LLNL; then \
+    if [[ -e "/etc/pki/tls/cert.pem" ]]; then
+        export REQUESTS_CA_BUNDLE="/etc/pki/tls/cert.pem"
+    else
+        export REQUESTS_CA_BUNDLE="${HOME}/.config/cert.pem"
+    fi
+fi
 
 ######## OPTIONS ########
 setopt autopushd
