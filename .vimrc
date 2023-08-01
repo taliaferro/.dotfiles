@@ -23,11 +23,11 @@ call plug#end()
 :command! Tree NERDTree
 :set mouse=a
 :set shortmess=a
+:set autoread
 
 let g:airline_theme= 'gruvbox8'
 :set background=dark
 autocmd vimenter * colorscheme gruvbox8
-
 
 if v:version > 800
 	:set termwinsize=20x0
@@ -36,6 +36,9 @@ else
 	:command! Term TerminalSplit zsh
 endif
 
+
+" Strim trailing whitespace in YAML, Python and Javascript documents where it
+" might be semantically meaningful.
 function! <SID>StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
