@@ -2,6 +2,8 @@
 source ~/.iterm2_shell_integration.zsh
 
 ######## GLOBALS ########
+
+export PATH=${HOME}/.local/bin:${PATH}
 export CLICOLOR=1
 export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
 
