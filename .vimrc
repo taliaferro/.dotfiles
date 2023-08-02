@@ -54,5 +54,5 @@ endfunction
 
 autocmd BufWritePre *.py,*.js,*.sh,*.yml,*.yaml :call <SID>StripTrailingWhitespaces()
 
-
-
+" keep NERDTree open on each new tab
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
