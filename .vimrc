@@ -28,8 +28,6 @@ call plug#end()
 :set mouse=a
 :set shortmess=a
 :set autoread
-:set shiftwidth=2
-:set expandtab
 
 
 let g:airline_theme= 'gruvbox8'
