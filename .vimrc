@@ -12,6 +12,10 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 " Put all the plugins you need between these begin and end blocks
 call plug#begin()
 
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'tc50cal/vim-terminal'
@@ -24,6 +28,9 @@ call plug#end()
 :set mouse=a
 :set shortmess=a
 :set autoread
+:set shiftwidth=2
+:set expandtab
+
 
 let g:airline_theme= 'gruvbox8'
 :set background=dark
@@ -56,3 +63,8 @@ autocmd BufWritePre *.py,*.js,*.sh,*.yml,*.yaml :call <SID>StripTrailingWhitespa
 
 " keep NERDTree open on each new tab
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" automatically reload the state of the file on disk while cursor is still
+:set autoread
+au CursorHold,CursorHoldI * checktime
+
