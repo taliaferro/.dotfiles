@@ -1,0 +1,21 @@
+# This is Git's per-user configuration file.
+[user]
+	name = James Taliaferro
+	email = taliaferro1@llnl.gov
+
+[init]
+	defaultBranch = main
+[core]
+	editor = vim
+[push]
+	default = current
+[diff]
+	tool = vimdiff
+[alias]
+	d = difftool
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+
+[mergetool "vscode"]
+	cmd = code --wait $MERGED
+
