@@ -17,7 +17,7 @@ if $IS_LLNL; then \
     if [[ -e "/etc/pki/tls/cert.pem" ]]; then
         export REQUESTS_CA_BUNDLE="/etc/pki/tls/cert.pem"
     else
-        export REQUESTS_CA_BUNDLE="${HOME}/.config/cert.pem"
+        # export REQUESTS_CA_BUNDLE="${HOME}/.config/cert.pem"
     fi
 fi
 
@@ -27,7 +27,12 @@ fi
 if [ -d $HOME/spack ]; then
     SPACK_SKIP_MODULES=1 
     source $HOME/spack/share/spack/setup-env.sh
-    spack env activate default
+fi;
+
+default_env=$HOME/.spack/environments/default/.spack-env/view
+
+if [ -d $default_env ]; then
+    export PATH=$default_env/bin:$PATH
 fi;
 
 ######## OPTIONS ########

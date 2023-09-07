@@ -1,0 +1,3 @@
+config:
+  environments_root: ~/.spack/environments/
+  # use_curl: true
