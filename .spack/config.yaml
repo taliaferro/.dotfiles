@@ -1,4 +1,0 @@
-config:
-  use_curl: true
-  install_missing_compilers: true
-  environments_root: ~/.spack/environments
