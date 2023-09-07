@@ -1,6 +1,11 @@
 ######## EXTERNAL ########
 source ~/.iterm2_shell_integration.zsh
 
+if [ -d $HOME/spack ]; then
+    SPACK_SKIP_MODULES=1 
+    source $HOME/spack/share/spack/setup-env.sh
+fi;
+
 ######## GLOBALS ########
 
 export PATH=${HOME}/.local/bin:${PATH}
