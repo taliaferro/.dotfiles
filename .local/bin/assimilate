@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# adapted from Nicola Paolucci's work
+# https://www.atlassian.com/git/tutorials/dotfiles
+
+ssh $1 sh -s <<'EOF'
+
+if [ -d $HOME/.dotfiles ]; then
+  printf '\n~/.dotfiles already exists.\nYou may want to run `dotfiles reset` or delete the directory and try again.'
+  exit 0
+fi;
+
+git clone --bare https://github.com/taliaferro/.dotfiles.git  $HOME/.dotfiles
+function dotfiles {
+   /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
+}
+
+dotfiles remote set-url --push origin git@github.com:taliaferro/.dotfiles.git
+dotfiles config status.showUntrackedFiles no
+
+dotfiles checkout
+if [ $? = 0 ]; then
+  echo "Checked out dotfiles repo.";
+  else
+    printf "\nBacking up pre-existing dotfiles and trying again...\n";
+    dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {}{,.bak.$(date -uIs)}
+    dotfiles checkout
+fi;
+
+EOF
+
+if [ $? = 0 ]; then
+    printf "\n$1 has been assimilated.\n"
+fi;
