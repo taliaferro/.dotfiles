@@ -1,11 +1,6 @@
 ######## EXTERNAL ########
 source ~/.iterm2_shell_integration.zsh
 
-if [ -d $HOME/spack ]; then
-    SPACK_SKIP_MODULES=1 
-    source $HOME/spack/share/spack/setup-env.sh
-fi;
-
 ######## GLOBALS ########
 
 export PATH=${HOME}/.local/bin:${PATH}
@@ -25,6 +20,15 @@ if $IS_LLNL; then \
         export REQUESTS_CA_BUNDLE="${HOME}/.config/cert.pem"
     fi
 fi
+
+
+######## SPACK ########
+
+if [ -d $HOME/spack ]; then
+    SPACK_SKIP_MODULES=1 
+    source $HOME/spack/share/spack/setup-env.sh
+    spack env activate default
+fi;
 
 ######## OPTIONS ########
 setopt autopushd
@@ -46,9 +50,6 @@ function get-pod () {
     security find-generic-password -a ${USER} -s "LC Password of the Day" -w | pbcopy
 }
 # adapted from https://github.com/ysl2/mini-simple-zsh-prompt
-
-
-
 
 
 ######## Vim mode setup ########
