@@ -6,6 +6,9 @@ spack:
   # add package specs to the `specs` list
   specs:
   - kakoune
+  - parallel
+  - git
+  - fzf
   view: true
   concretizer:
     unify: true
