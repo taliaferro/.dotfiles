@@ -6,26 +6,32 @@
 ssh $1 sh -s <<'EOF'
 
 if [ -d $HOME/.dotfiles ]; then
-  printf '\n~/.dotfiles already exists.\nYou may want to run `dotfiles reset` or delete the directory and try again.'
-  exit 0
+  printf "\n~/.dotfiles already exists.\nYou may want to run `dotfiles reset` or delete the directory and try again."
+else
+  git clone --bare https://github.com/taliaferro/.dotfiles.git  $HOME/.dotfiles
+  dotfiles() { 
+    /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
+  }
+  
+  dotfiles remote set-url --push origin git@github.com:taliaferro/.dotfiles.git
+  dotfiles config status.showUntrackedFiles no
+  
+  dotfiles checkout
+  if [ $? = 0 ]; then
+    echo "Checked out dotfiles repo.";
+    else
+      printf "\nBacking up pre-existing dotfiles and trying again...\n";
+      dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {}{,.bak.$(date -uIs)}
+      dotfiles checkout
+  fi;
 fi;
 
-git clone --bare https://github.com/taliaferro/.dotfiles.git  $HOME/.dotfiles
-function dotfiles {
-   /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
-}
-
-dotfiles remote set-url --push origin git@github.com:taliaferro/.dotfiles.git
-dotfiles config status.showUntrackedFiles no
-
-dotfiles checkout
-if [ $? = 0 ]; then
-  echo "Checked out dotfiles repo.";
-  else
-    printf "\nBacking up pre-existing dotfiles and trying again...\n";
-    dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {}{,.bak.$(date -uIs)}
-    dotfiles checkout
+if [ -d $HOME/spack ]; then
+  printf '\nSkipping Spack install...'
+else
+  git clone -c feature.manyFiles=true https://github.com/spack/spack.git $HOME/spack
 fi;
+
 
 EOF
 
