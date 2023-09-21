@@ -18,14 +18,6 @@ if $IS_LLNL; then \
     fi
 fi
 
-if which kak > /dev/null; then
-    export EDITOR=kak
-elif which vim > /dev/null; then
-    export EDITOR=vim
-else
-    export EDITOR=vi
-fi
-
 
 ######## SPACK ########
 
@@ -39,6 +31,15 @@ default_env=$HOME/.spack/environments/default/.spack-env/view
 if [ -d $default_env ]; then
     export PATH=$default_env/bin:$PATH
 fi;
+
+######## EDITOR ########
+if which kak 2>&1 > /dev/null; then
+    export EDITOR=kak
+elif which vim 2>&1 > /dev/null; then
+    export EDITOR=vim
+else
+    export EDITOR=vi
+fi
 
 ######## OPTIONS ########
 setopt autopushd
