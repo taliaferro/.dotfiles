@@ -1,6 +1,3 @@
-######## EXTERNAL ########
-source ~/.iterm2_shell_integration.zsh
-
 ######## GLOBALS ########
 
 export PATH=${HOME}/.local/bin:${PATH}
@@ -19,6 +16,14 @@ if $IS_LLNL; then \
     else
         # export REQUESTS_CA_BUNDLE="${HOME}/.config/cert.pem"
     fi
+fi
+
+if which kak > /dev/null; then
+    export EDITOR=kak
+elif which vim > /dev/null; then
+    export EDITOR=vim
+else
+    export EDITOR=vi
 fi
 
 
@@ -57,34 +62,6 @@ function get-pod () {
 # adapted from https://github.com/ysl2/mini-simple-zsh-prompt
 
 
-######## Vim mode setup ########
-
-bindkey -v # enable vim mode
-
-# credit to rotareti on stackoverflow
-# https://unix.stackexchange.com/a/327572
-function zle-keymap-select zle-line-init
-{
-    # change cursor shape in iTerm2
-    case $KEYMAP in
-        vicmd)      print -n -- "\E]50;CursorShape=0\C-G";;  # block cursor
-        viins|main) print -n -- "\E]50;CursorShape=1\C-G";;  # line cursor
-    esac
-
-    zle reset-prompt
-    zle -R
-}
-
-function zle-line-finish
-{
-    print -n -- "\E]50;CursorShape=0\C-G"  # block cursor
-}
-
-zle -N zle-line-init
-zle -N zle-line-finish
-zle -N zle-keymap-select
-
-
 ######## PROMPT ########
 # Load version control information
 autoload -Uz vcs_info
@@ -108,3 +85,8 @@ alias :wq="exit"
 alias :x="exit"
 alias bw_unlock='export BW_SESSION=$(bw unlock --raw)'
 alias mxcc="tmux -CC new -A -s main"
+
+
+######## EXTERNAL ########
+source ~/.iterm2_shell_integration.zsh
+
