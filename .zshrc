@@ -33,9 +33,9 @@ if [ -d $default_env ]; then
 fi;
 
 ######## EDITOR ########
-if which kak 2>&1 > /dev/null; then
+if which kak > /dev/null 2> /dev/null; then
     export EDITOR=kak
-elif which vim 2>&1 > /dev/null; then
+elif which vim > /dev/null 2> /dev/null; then
     export EDITOR=vim
 else
     export EDITOR=vi
