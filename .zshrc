@@ -60,9 +60,16 @@ function get-pod () {
     security find-generic-password -a ${USER} -s "LC Password of the Day" | grep mdat | cut -d'"' -f 4 | cut -d "\\" -f1 | sed 's/Z/GMT/' | xargs -I {} date -jf %Y%m%d%H%M%S%Z "{}"
     security find-generic-password -a ${USER} -s "LC Password of the Day" -w | pbcopy
 }
+
+function spack-ref () {
+  git -C $HOME/spack fetch origin
+  if git -C $HOME/spack remote | grep upstream; then
+    git -C $HOME/spack fetch upstream
+    git -C $HOME/spack merge upstream/develop origin/develop
+  fi
+}
+
 # adapted from https://github.com/ysl2/mini-simple-zsh-prompt
-
-
 ######## PROMPT ########
 # Load version control information
 autoload -Uz vcs_info
@@ -85,8 +92,9 @@ alias dotfiles='git --git-dir=${HOME}/.dotfiles/ --work-tree=${HOME}'
 alias :wq="exit"
 alias :x="exit"
 alias bw_unlock='export BW_SESSION=$(bw unlock --raw)'
-alias mxcc="tmux -CC new -A -s main"
-
+alias mxcc="tmux -CC new -A -s main" # tmux control mode for iterm2
+alias spack-up="spack -e default concretize --fresh --force; spack -e default install"
+# alias kssh="kitty +kitten ssh"
 
 ######## EXTERNAL ########
 source ~/.iterm2_shell_integration.zsh
