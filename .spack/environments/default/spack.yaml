@@ -1,14 +1,13 @@
-# This is a Spack Environment file.
-#
-# It describes a set of packages to be installed, along with
-# configuration settings.
 spack:
-  # add package specs to the `specs` list
   specs:
   - kakoune
-  - parallel
   - git
-  - fzf
+  - nmap
+  - py-ranger-fm
+  - python@3.10
+  - py-pip
+  - tmux
+  - zsh
   view: true
   concretizer:
     unify: true
