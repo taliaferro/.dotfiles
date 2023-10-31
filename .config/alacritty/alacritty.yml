@@ -18,6 +18,10 @@ font:
   italic:
     style: Italic
     family: "Intel One Mono"
+  bold:
+    family: "Intel One Mono"
+    style: Medium
+
   size: 14.0
 
   # Offset is the extra space around each character. offset.y can be thought of
@@ -154,6 +158,13 @@ cursor:
 
 # Live config reload (changes require restart)
 live_config_reload: true
+
+shell:
+  program: /bin/sh
+  args:
+    - --login
+    - -c
+    - tmux
 
 # Colors (Gruvbox dark)
 colors:
