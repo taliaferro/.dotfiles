@@ -164,7 +164,10 @@ shell:
   args:
     - --login
     - -c
-    - tmux
+    - "tmux new-session -A -s alacritty"
+    # uncomment below for multiple sessions in a group, with the same windows,
+    # instead of always sharing one session between multiple clients
+    # - "tmux new-session -A -t alacritty -s $ALACRITTY_WINDOW_ID"
 
 # Colors (Gruvbox dark)
 colors:
