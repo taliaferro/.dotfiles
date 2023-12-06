@@ -8,6 +8,7 @@ spack:
   - py-pip
   - tmux
   - zsh
+  - emacs
   view: true
   concretizer:
     unify: true
