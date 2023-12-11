@@ -94,6 +94,7 @@ alias :x="exit"
 alias bw_unlock='export BW_SESSION=$(bw unlock --raw)'
 alias mxcc="tmux -CC new -A -s main" # tmux control mode for iterm2
 alias spack-up="spack -e default concretize --fresh --force; spack -e default install"
+alias emacs="emacs -nw"
 # alias kssh="kitty +kitten ssh"
 
 ######## EXTERNAL ########
