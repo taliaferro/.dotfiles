@@ -9,6 +9,7 @@ spack:
   - tmux
   - zsh
   - emacs
+  - the-silver-searcher
   view: true
   concretizer:
     unify: true
