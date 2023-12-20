@@ -160,11 +160,11 @@ cursor:
 live_config_reload: true
 
 shell:
-  program: /bin/sh
+  program: /bin/bash
   args:
     - --login
     - -c
-    - "tmux new-session -A -s alacritty"
+    - "/usr/bin/env tmux new-session -A -s alacritty"
     # uncomment below for multiple sessions in a group, with the same windows,
     # instead of always sharing one session between multiple clients
     # - "tmux new-session -A -t alacritty -s $ALACRITTY_WINDOW_ID"
