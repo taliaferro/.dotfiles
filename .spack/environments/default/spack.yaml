@@ -10,6 +10,7 @@ spack:
   - zsh
   - emacs
   - the-silver-searcher
+  - coreutils
   view: true
   concretizer:
     unify: true
