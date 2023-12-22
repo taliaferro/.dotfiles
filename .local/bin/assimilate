@@ -33,7 +33,7 @@ dotfiles submodule update --remote --init --recursive;
 if [ -d $HOME/spack ]; then
   printf '\nSkipping Spack install...'
 else
-  git clone -c feature.manyFiles=true https://github.com/spack/spack.git $HOME/spack
+  git clone --filter=tree:0 -c feature.manyFiles=true https://github.com/spack/spack.git $HOME/spack
 fi;
 
 
