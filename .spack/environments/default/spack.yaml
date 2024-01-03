@@ -11,6 +11,8 @@ spack:
   - emacs
   - the-silver-searcher
   - coreutils
+  - tree
+  - jq
   view: true
   concretizer:
     unify: true
