@@ -61,6 +61,9 @@ evaluate-commands %sh{
     printf "define-command -override echo-to-clipboard -params .. %%{ echo -to-shell-script '%s' -- %%arg{@} }" "$copy"
 }
 
+# there is no scenario where I will want to keep trailing whitespace
+hook global BufWritePre .* %{ try %{ execute-keys -draft \%s\h+$<ret>d } }
+
 # Various mappings
 # ────────────────
 
