@@ -22,7 +22,7 @@ fi
 ######## SPACK ########
 
 if [ -d $HOME/spack ]; then
-    SPACK_SKIP_MODULES=1 
+    SPACK_SKIP_MODULES=1
     source $HOME/spack/share/spack/setup-env.sh
 fi;
 
@@ -100,3 +100,4 @@ alias emacs="emacs -nw"
 ######## EXTERNAL ########
 source ~/.iterm2_shell_integration.zsh
 
+if ! infocmp $TERM > /dev/null; then export TERM="xterm-256color"; fi
