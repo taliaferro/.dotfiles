@@ -20,4 +20,3 @@ alias :wq="exit"
 alias :x="exit"
 alias bw_unlock='export BW_SESSION=$(bw unlock --raw)'
 alias mxcc="tmux -CC new -A -s main"
-if ! infocmp $TERM > /dev/null; then export TERM="xterm-256color"; fi
