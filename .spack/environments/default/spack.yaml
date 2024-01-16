@@ -13,6 +13,7 @@ spack:
   - coreutils
   - tree
   - jq
+  - ack
   view: true
   concretizer:
     unify: true
