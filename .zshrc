@@ -100,4 +100,3 @@ alias emacs="emacs -nw"
 ######## EXTERNAL ########
 source ~/.iterm2_shell_integration.zsh
 
-if ! infocmp $TERM > /dev/null; then export TERM="xterm-256color"; fi
