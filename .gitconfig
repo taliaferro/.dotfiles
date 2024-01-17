@@ -10,7 +10,7 @@
 [diff]
 	tool = vimdiff
 [alias]
-	d = difftool
+	pushmerge = "push  -o merge_request.create -o merge_request.merge_when_pipeline_succeeds -o merge_request.remove_source_branch"
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
 
