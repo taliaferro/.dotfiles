@@ -1,7 +1,6 @@
-# This is Git's per-user configuration file.
 [user]
-	name = James Taliaferro
-	email = taliaferro1@llnl.gov
+  name = "James Taliaferro"
+  email = "james@taliafer.ro"
 
 [init]
 	defaultBranch = main
@@ -11,9 +10,18 @@
 	tool = vimdiff
 [alias]
 	pushmerge = "push  -o merge_request.create -o merge_request.merge_when_pipeline_succeeds -o merge_request.remove_source_branch"
+
 [difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
 
 [mergetool "vscode"]
 	cmd = code --wait $MERGED
 
+[includeIf "hasconfig:remote.*.url:*://*llnl.gov*/**"]
+	path = ~/.llnl.gitconfig
+
+[includeIf "hasconfig:remote.*.url:*://*buildfarm.internal*/**"]
+	path = ~/.llnl.gitconfig
+
+[includeIf "hasconfig:remote.*.url:*://*ibm.com*/**"]
+	path = ~/.llnl.gitconfig
