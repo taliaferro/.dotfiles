@@ -8,12 +8,14 @@ spack:
   - py-pip
   - tmux
   - zsh
-  - emacs
-  - the-silver-searcher
   - coreutils
   - tree
   - jq
-  - ack
+  - ripgrep
+  - bat
+  - py-black
+  - py-ipython
+  - py-ansible
   view: true
   concretizer:
     unify: true
