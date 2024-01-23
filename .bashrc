@@ -1,3 +1,5 @@
+export PATH=~/.local/bin:$PATH
+
 ######## SPACK ########
 
 if [ -d $HOME/spack ]; then
