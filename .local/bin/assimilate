@@ -16,19 +16,13 @@ else
   dotfiles remote set-url --push origin git@github.com:taliaferro/.dotfiles.git
   dotfiles config status.showUntrackedFiles no
 
-  dotfiles checkout
-  if [ $? = 0 ]; then
-    echo "Checked out dotfiles repo.";
-    else
-      printf "\nBacking up pre-existing dotfiles and trying again...\n";
-      dotfiles checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {}{,.bak.$(date -uIs)}
-      dotfiles checkout
-      dotfiles submodule init
-  fi;
 fi;
 
-dotfiles pull;
+dotfiles fetch;
+dotfiles checkout -f;
 dotfiles submodule update --remote --init --recursive;
+
+chmod 600 ${HOME}/.ssh/config
 
 if [ -d $HOME/spack ]; then
   printf '\nSkipping Spack install...'
