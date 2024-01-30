@@ -14,6 +14,12 @@ if [ -d $default_env ]; then
     export PATH=$default_env/bin:$PATH
 fi;
 
+if which -s kak; then
+  export EDITOR=kak;
+else
+  export EDITOR=vim;
+fi;
+
 ######### PROMPT ########
 # get current branch in git repo
 function parse_git_branch() {
