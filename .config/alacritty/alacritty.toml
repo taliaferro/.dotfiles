@@ -61,6 +61,11 @@ style = "Regular"
 x = 0
 y = 0
 
+# much time spent working out this bug
+[[keyboard.bindings]]
+key = "NumpadEnter"
+chars = "\n"
+
 [[keyboard.bindings]]
 action = "Paste"
 key = "V"
@@ -352,8 +357,8 @@ mods = "Command"
 [[keyboard.bindings]]
 chars = "\u0002/"
 key = "F"
-mods = "Command"
 
+mods = "Command"
 [mouse]
 hide_when_typing = false
 
