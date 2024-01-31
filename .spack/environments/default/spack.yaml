@@ -11,11 +11,13 @@ spack:
   - coreutils
   - tree
   - jq
-  - ripgrep
-  - bat
   - py-black
   - py-ipython
-  - py-ansible
+  ## commented because they introduce a dependency on rust
+  ## which takes an eternity to build
+  # - py-ansible
+  # - ripgrep
+  # - bat
   view: true
   concretizer:
     unify: true
