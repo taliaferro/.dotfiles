@@ -2,11 +2,8 @@ live_config_reload = true
 
 [bell]
 animation = "EaseOutExpo"
-color = "0xffffff"
-duration = 0
-
-[colors]
-draw_bold_text_with_bright_colors = false
+color = "0x3c3836"
+duration = 100
 
 [colors.bright]
 black = "0x928374"
@@ -30,7 +27,7 @@ yellow = "0xd79921"
 
 [colors.primary]
 background = "0x1d2021"
-foreground = "0xebdbb2"
+foreground = "0xfbf1c7"
 
 [cursor]
 unfocused_hollow = true
@@ -41,21 +38,19 @@ unfocused_hollow = true
 [font]
 size = 14.0
 
+[font.normal]
+family = "Monaspace Neon"
+style = "Regular"
+
 [font.bold]
-family = "Intel One Mono"
 style = "Medium"
+
+[font.italic]
+style = "Italic"
 
 [font.glyph_offset]
 x = 0
 y = 0
-
-[font.italic]
-family = "Intel One Mono"
-style = "Italic"
-
-[font.normal]
-family = "Intel One Mono"
-style = "Regular"
 
 [font.offset]
 x = 0
@@ -357,8 +352,8 @@ mods = "Command"
 [[keyboard.bindings]]
 chars = "\u0002/"
 key = "F"
-
 mods = "Command"
+
 [mouse]
 hide_when_typing = false
 
