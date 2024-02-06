@@ -14,7 +14,7 @@ if [ -d $default_env ]; then
     export PATH=$default_env/bin:$PATH
 fi;
 
-if which -s kak; then
+if which kak > /dev/null; then
   export EDITOR=kak;
 else
   export EDITOR=vim;
