@@ -82,4 +82,4 @@ alias mxcc="tmux -CC new -A -s main"
 
 if which codium > /dev/null ; then
   alias code="codium";
-fi"
+fi
