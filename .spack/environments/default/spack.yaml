@@ -18,6 +18,7 @@ spack:
   # - py-ansible
   # - ripgrep
   # - bat
+  - w3m
   view: true
   concretizer:
     unify: true
