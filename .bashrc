@@ -83,3 +83,6 @@ alias mxcc="tmux -CC new -A -s main"
 if which codium > /dev/null ; then
   alias code="codium";
 fi
+
+# Set pane title
+echo -en "\\033]0;${USER}@${HOSTNAME}\\a"

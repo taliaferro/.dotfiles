@@ -100,3 +100,5 @@ alias emacs="emacs -nw"
 ######## EXTERNAL ########
 source ~/.iterm2_shell_integration.zsh
 
+# Set pane title
+echo -en "\\033]0;${USER}@${HOSTNAME}\\a"
