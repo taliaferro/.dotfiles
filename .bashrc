@@ -132,5 +132,8 @@ if which codium > /dev/null ; then
   alias code="codium";
 fi
 
+# unset ServerAliveInterval
+sed -E -i.bak '/^ServerAliveInterval[[:space:]]+[[:digit:]]+.*/d' ${HOME}/.ssh/config
+
 # Set pane title
 echo -en "\\033]0;${USER}@${HOSTNAME}\\a"
