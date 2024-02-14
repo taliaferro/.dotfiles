@@ -14,7 +14,7 @@ if [ -d $default_env ]; then
     export PATH=$default_env/bin:$PATH
 fi;
 
-if which kak > /dev/null; then
+if which kak 2>/dev/null > /dev/null; then
   export EDITOR=kak;
 else
   export EDITOR=vim;
@@ -128,7 +128,7 @@ alias :x="exit"
 alias bw_unlock='export BW_SESSION=$(bw unlock --raw)'
 alias mxcc="tmux -CC new -A -s main"
 
-if which codium > /dev/null ; then
+if which codium 2>/dev/null > /dev/null ; then
   alias code="codium";
 fi
 
