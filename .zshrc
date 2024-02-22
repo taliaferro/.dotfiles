@@ -97,8 +97,6 @@ alias spack-up="spack -e default concretize --fresh --force; spack -e default in
 alias emacs="emacs -nw"
 # alias kssh="kitty +kitten ssh"
 
-######## EXTERNAL ########
-source ~/.iterm2_shell_integration.zsh
 
 # Set pane title
 echo -en "\\033]0;${USER}@${HOSTNAME}\\a"
