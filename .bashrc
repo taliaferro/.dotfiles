@@ -126,7 +126,7 @@ alias dotfiles='git --git-dir=${HOME}/.dotfiles/ --work-tree=${HOME}'
 alias :wq="exit"
 alias :x="exit"
 alias bw_unlock='export BW_SESSION=$(bw unlock --raw)'
-alias mxcc="tmux -CC new -A -s main"
+alias jqless="lq -C | less -R"
 
 if which codium 2>/dev/null > /dev/null ; then
   alias code="codium";
