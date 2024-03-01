@@ -132,6 +132,11 @@ if which codium 2>/dev/null > /dev/null ; then
   alias code="codium";
 fi
 
+######## MISC ########
+
+# tell ollama where the API server is
+export OLLAMA_HOST=mammoth.taliafer.ro
+
 # unset ServerAliveInterval
 sed -E -i.bak '/^ServerAliveInterval[[:space:]]+[[:digit:]]+.*/d' ${HOME}/.ssh/config
 
