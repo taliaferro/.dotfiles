@@ -99,7 +99,7 @@ alias jqless="jq -C | less -R"
 
 ######### MISC #########
 
-export OLLAMA_HOST=mammoth.taliafer.ro
+export OLLAMA_HOST=https://ollama.apps.taliafer.ro
 
 # Set pane title
 echo -en "\\033]0;${USER}@${HOSTNAME}\\a"

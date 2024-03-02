@@ -135,7 +135,7 @@ fi
 ######## MISC ########
 
 # tell ollama where the API server is
-export OLLAMA_HOST=mammoth.taliafer.ro
+export OLLAMA_HOST=https://ollama.apps.taliafer.ro
 
 # unset ServerAliveInterval
 sed -E -i.bak '/^ServerAliveInterval[[:space:]]+[[:digit:]]+.*/d' ${HOME}/.ssh/config
