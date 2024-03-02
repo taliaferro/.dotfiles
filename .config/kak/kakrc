@@ -1,10 +1,10 @@
 colorscheme gruvbox-dark
 
 # Width of a tab
-set-option global tabstop 2
+set-option global tabstop 4
 
 # Indent with 4 spaces
-set-option global indentwidth 2
+set-option global indentwidth 4
 
 # Always keep one line and three columns displayed around the cursor
 set-option global scrolloff 1,3
