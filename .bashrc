@@ -141,4 +141,4 @@ export OLLAMA_HOST=https://ollama.apps.taliafer.ro
 sed -E -i.bak '/^ServerAliveInterval[[:space:]]+[[:digit:]]+.*/d' ${HOME}/.ssh/config
 
 # Set pane title
-echo -en "\\033]0;${USER}@${HOSTNAME}\\a"
+# echo -en "\\033]0;${USER}@${HOSTNAME}\\a"
