@@ -1,0 +1,9 @@
+get-pod https://lc.llnl.gov/getkrbpw
+myllnl https://labportal.llnl.gov/web/myllnl
+time https://psoft.llnl.gov/psc/ps_newwin/EMPLOYEE/HRMS/c/NUI_FRAMEWORK.PT_AGSTARTPAGE_NUI.GBL?CONTEXTIDPARAMS=TEMPLATE_ID%3aPTPPNAVCOL&scname=ADMN_LLNL_TIME&AJAXTransfer=Y&PanelCollapsible=Y&PTPPB_GROUPLET_ID=HCTS_LLNL_TIME_LL&CRefName=ADMN_LLNL_TIME
+rhsa https://access.redhat.com/errata-search/#/?q=&p=1&sort=portal_publication_date%20desc&rows=10&portal_advisory_type=Security%20Advisory&portal_product=Red%20Hat%20Enterprise%20Linux
+izgitlab https://izlc.llnl.gov/gitlab/
+eor https://cspservices.llnl.gov/eor/cgi-bin/eor.cgi?action=showAddForm
+cheatsheet https://qutebrowser.org/doc/help/commands.html
+ltrain https://ltrain.llnl.gov/lms/faces/main.jspx
+ytm https://music.youtube.com/
