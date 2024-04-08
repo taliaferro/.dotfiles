@@ -20,6 +20,15 @@ else
   export EDITOR=vim;
 fi;
 
+function spack-ref () {
+  git -C $HOME/spack fetch origin
+  if git -C $HOME/spack remote | grep upstream; then
+    git -C $HOME/spack fetch upstream
+    git -C $HOME/spack merge upstream/develop origin/develop
+  fi
+}
+
+
 ######### PROMPT ########
 
 function seed_rng() {
@@ -126,7 +135,8 @@ alias dotfiles='git --git-dir=${HOME}/.dotfiles/ --work-tree=${HOME}'
 alias :wq="exit"
 alias :x="exit"
 alias bw_unlock='export BW_SESSION=$(bw unlock --raw)'
-alias jqless="lq -C | less -R"
+alias jqless="jq -C | less -R"
+alias rot13="tr 'A-Za-z' 'N-ZA-Mn-za-m'"
 
 if which codium 2>/dev/null > /dev/null ; then
   alias code="codium";
