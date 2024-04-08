@@ -374,6 +374,6 @@ program = "/bin/sh"
 args = [
   "--login", 
   "-c", 
-  "$($HOME/spack/bin/spack location -i tmux)/bin/tmux || $(which tmux) || echo 'could not find tmux, quitting in 5' && sleep 5;"
+  "$($HOME/spack/bin/spack location -i tmux)/bin/tmux new-session -As alacritty || $(which tmux) new-session -As alacritty || (echo 'could not find tmux, quitting in 5' && sleep 5;)"
 ]
 
