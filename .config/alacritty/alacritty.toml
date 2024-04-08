@@ -370,6 +370,10 @@ save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [shell]
-program = "/bin/bash"
-args = ["--login", "-c", "/usr/bin/env tmux new-session -A -s alacritty"]
+program = "/bin/sh"
+args = [
+  "--login", 
+  "-c", 
+  "$($HOME/spack/bin/spack location -i tmux)/bin/tmux || $(which tmux) || echo 'could not find tmux, quitting in 5' && sleep 5;"
+]
 
