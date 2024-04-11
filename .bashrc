@@ -8,6 +8,14 @@ if [ -d $HOME/spack ]; then
     source $HOME/spack/share/spack/setup-env.sh
 fi;
 
+function spack-ref () {
+  git -C $HOME/spack fetch origin
+  if git -C $HOME/spack remote | grep upstream; then
+    git -C $HOME/spack fetch upstream
+    git -C $HOME/spack merge upstream/develop origin/develop
+  fi
+};
+
 default_env=$HOME/.spack/environments/default/.spack-env/view
 
 if [ -d $default_env ]; then
