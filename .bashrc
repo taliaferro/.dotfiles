@@ -1,6 +1,11 @@
 export PATH=~/.local/bin:$PATH
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+####### HOMEBREW ######
+if [ -x /opt/homebrew/bin/brew ]; then
+    eval $(/opt/homebrew/bin/brew shellenv)
+fi
+
 ######## SPACK ########
 
 # Spack sometimes makes a broken python (especially on OpenSUSE.)
@@ -158,7 +163,9 @@ fi
 ######## MISC ########
 
 # tell ollama where the API server is
-export OLLAMA_HOST=https://ollama.apps.taliafer.ro
+if [ $(hostname -d) == "taliafer.ro" ]; then
+  export OLLAMA_HOST=https://ollama.apps.taliafer.ro
+fi
 
 # unset ServerAliveInterval
 sed -E -i.bak '/^ServerAliveInterval[[:space:]]+[[:digit:]]+.*/d' ${HOME}/.ssh/config
