@@ -1,5 +1,3 @@
-colorscheme gruvbox-dark
-
 # Width of a tab
 set-option global tabstop 4
 
@@ -20,7 +18,6 @@ add-highlighter global/ wrap -word -indent
 
 # Shortcut to quickly exit the editor
 define-command -docstring "save and quit" x "write-all; quit"
-colorscheme gruvbox-dark
 
 set-face global CurWord +b
 set-face global InsertCursor default,green+B
