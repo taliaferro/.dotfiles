@@ -29,6 +29,7 @@
 import json
 import subprocess
 import sys
+from functools import reduce
 
 # Hook should extract all the following for use as Timewarrior tags:
 #   UUID
@@ -42,13 +43,18 @@ try:
 except AttributeError:
     input_stream = sys.stdin
 
-
 def extract_tags_from(json_obj):
     # Extract attributes for use as tags.
     tags = [json_obj['description']]
 
     if 'project' in json_obj:
-        tags.append(json_obj['project'])
+        project_parts = json_obj["project"].split(".")
+        project_hierarchy = reduce(
+            lambda acc, x: acc + [acc[-1]+'.'+x] if acc else [x],
+            project_parts,
+            None
+        ) # evil functional programming turns "foo.bar.baz" into ["foo", "foo.bar", "foo.bar.baz"]
+        tags.extend(project_hierarchy)
 
     if 'tags' in json_obj:
         if type(json_obj['tags']) is str:
