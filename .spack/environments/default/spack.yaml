@@ -17,6 +17,7 @@ spack:
   - bat
   - w3m
   - task@2
+  - editorconfig
   view: true
   concretizer:
     unify: true
