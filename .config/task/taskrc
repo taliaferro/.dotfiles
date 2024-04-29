@@ -4,6 +4,7 @@ hooks.location=~/.config/task/hooks
 
 # Color theme (uncomment one to use)
 include dark-16.theme
+color.scheduled=bold black on bright green
 news.version=2.6.0
 
 # Reports
