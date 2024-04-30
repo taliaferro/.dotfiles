@@ -371,6 +371,10 @@ multiplier = 3
 save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
+[window]
+dimensions.columns=160
+dimensions.lines=40
+
 [shell]
 program = "/bin/sh"
 args = [
