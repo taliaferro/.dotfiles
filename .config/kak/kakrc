@@ -21,6 +21,8 @@ define-command -docstring "save and quit" x "write-all; quit"
 
 set-face global CurWord +b
 set-face global InsertCursor default,green+B
+set-face global MenuBackground blue,white,default+d
+set-face global MenuForeground black,bright-blue,default
 
 hook global ModeChange .*:.*:insert %{
     set-face window PrimaryCursor InsertCursor
@@ -31,6 +33,11 @@ hook global ModeChange .*:insert:.* %{ try %{
     unset-face window PrimaryCursor
     unset-face window PrimaryCursorEol
 } }
+
+eval %sh{kak-lsp --kakoune -s $kak_session}
+hook global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
+    lsp-enable-window
+}
 
 evaluate-commands %sh{
     if [ -n "$SSH_TTY" ]; then
