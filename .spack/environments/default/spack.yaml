@@ -10,6 +10,7 @@ spack:
   - coreutils
   - tree
   - jq
+  - rust+dev
   - py-black
   - py-ipython
   - py-ansible
