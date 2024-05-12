@@ -161,9 +161,10 @@ if which codium 2>/dev/null > /dev/null ; then
 fi
 
 ######## MISC ########
+export DOMAIN=$(hostname -d)
 
 # tell ollama where the API server is
-if [ $(hostname -d) == "taliafer.ro" ]; then
+if [ "$DOMAIN" == "taliafer.ro" ]; then
   export OLLAMA_HOST=https://ollama.apps.taliafer.ro
 fi
 
