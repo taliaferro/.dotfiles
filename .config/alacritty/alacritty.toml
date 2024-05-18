@@ -38,7 +38,7 @@ unfocused_hollow = true
 # TERM = "xterm-256color"
 
 [font]
-size = 16.0
+size = 12.0
 
 [font.normal]
 family = "Monaspace Neon"
@@ -372,7 +372,7 @@ save_to_clipboard = false
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [window]
-dimensions.columns=160
+dimensions.columns=120
 dimensions.lines=40
 
 [shell]
@@ -380,6 +380,6 @@ program = "/bin/sh"
 args = [
   "--login",
   "-c",
-  "$($HOME/spack/bin/spack location -i tmux)/bin/tmux new-session -As alacritty || $(which tmux) new-session -As alacritty || (echo 'could not find tmux, quitting in 5' && sleep 5;)"
+  "$($HOME/spack/bin/spack -e default location -i tmux)/bin/tmux new-session -As alacritty || $(which tmux) new-session -As alacritty || (echo 'could not find tmux, quitting in 5' && sleep 5;)"
 ]
 
