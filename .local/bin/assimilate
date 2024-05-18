@@ -8,12 +8,12 @@ ssh $1 sh -s <<'EOF'
 if [ -d $HOME/.dotfiles ]; then
   printf "\n~/.dotfiles already exists.\nYou may want to run `dotfiles reset` or delete the directory and try again."
 else
-  git clone --bare --recurse-submodules https://github.com/taliaferro/.dotfiles.git $HOME/.dotfiles
+  git clone --bare --recurse-submodules https://git.sr.ht/~taliaferro/.dotfiles $HOME/.dotfiles
   dotfiles() {
     /usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME $@
   }
 
-  dotfiles remote set-url --push origin git@github.com:taliaferro/.dotfiles.git
+  dotfiles remote set-url --push origin https://git.sr.ht/~taliaferro/.dotfiles
   dotfiles config status.showUntrackedFiles no
 
 fi;
