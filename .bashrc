@@ -11,7 +11,7 @@ fi
 # Spack sometimes makes a broken python (especially on OpenSUSE.)
 # So we make sure it always uses the system Python just in case.
 # Debugging Spack is much harder when you can't even trust the interpreter.
-export SPACK_PYTHON=$(which python3)
+export SPACK_PYTHON=$(which python3 2>/dev/null)
 
 if [ -d $HOME/spack ]; then
     SPACK_SKIP_MODULES=1
