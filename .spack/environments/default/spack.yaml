@@ -21,6 +21,7 @@ spack:
   - task@2
   - timew
   - editorconfig
+  - nb
   view: true
   concretizer:
     unify: true
