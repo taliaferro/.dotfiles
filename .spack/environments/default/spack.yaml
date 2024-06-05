@@ -2,8 +2,8 @@ spack:
   packages:
     all:
       target:
-        - x86_64_v3
-        - aarch64
+      - x86_64_v3
+      - aarch64
   specs:
   - kakoune
   - git
@@ -27,6 +27,7 @@ spack:
   - timew
   - editorconfig
   - nb
+  - pass
   view: true
   concretizer:
     unify: true
