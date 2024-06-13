@@ -7,5 +7,6 @@ if [[ "${ORIGIN}" =~ "github" ]]; then
 	git --git-dir=${HOME}/.dotfiles/ remote rename origin github
     git --git-dir=${HOME}/.dotfiles/ remote add origin https://git.sr.ht/~taliaferro/.dotfiles
     git --git-dir=${HOME}/.dotfiles/ remote set-url --push origin git@git.sr.ht:~taliaferro/.dotfiles
+    git --git-dir=${HOME}/.dotfiles/ pull origin main
     git --git-dir=${HOME}/.dotfiles/ branch -u origin/main main
 fi
